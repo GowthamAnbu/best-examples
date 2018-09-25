@@ -1,3 +1,28 @@
-<input type="text" name="Email" id="emailId" autocomplete="off" [(ngModel)]="user.email">
-<input type="password" name="password" id="passwordId" autocomplete="off" [(ngModel)]="user.password">
-<input type="button" value="login" (click)="login()">
+<form [formGroup]="loginForm" (submit)="login()">
+
+  <label>
+    Email:
+    <input type="text" [formControlName]="'email'">
+    <p *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+      <span *ngIf="loginForm.get('email').hasError('required')">
+        Email is required
+      </span>
+      <span *ngIf="loginForm.get('email').hasError('pattern')">
+        Please type a valid email address
+      </span>
+    </p>
+  </label>
+
+  <label>
+    Password:
+    <input type="password" [formControlName]="'password'">
+    <p *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+      <span *ngIf="loginForm.get('password').hasError('required')">
+        password is required
+      </span>
+    </p>
+  </label>
+  <input type="submit" value="Login" [disabled]="!loginForm.valid">
+</form>
+
+<input type="button" value="signup" (click)="helper.goto(['singup'])">

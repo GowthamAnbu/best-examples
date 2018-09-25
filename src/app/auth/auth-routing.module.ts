@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WrapLoginComponent } from './containers/wrap-login/wrap-login.component';
+import { SingupComponent } from './components/singup/singup.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: WrapLoginComponent
+  },
+  {
+    path: 'singup',
+    component: SingupComponent,
   },
   {
     path: '**',
