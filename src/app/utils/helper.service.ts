@@ -11,7 +11,7 @@ export class HelperService {
 
   constructor(private router: Router) { }
 
-  goto(commands: any[], extras?:NavigationExtras){
+  navigateTo(commands: any[], extras?:NavigationExtras){
     extras === undefined ?
       this.router.navigate(commands) :
       this.router.navigate(commands, extras);

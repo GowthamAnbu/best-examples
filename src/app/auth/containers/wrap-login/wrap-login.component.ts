@@ -31,6 +31,7 @@ export class WrapLoginComponent implements OnInit {
 
   login(user: User) {
     console.log(user);
+    //* this.helper.navigateTo('(dashboard/home/landing) page');
     // TODO add action here which internally uses another action to redirect to the target page
   }
 }

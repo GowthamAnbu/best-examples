@@ -6,6 +6,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { WrapLoginComponent } from './containers/wrap-login/wrap-login.component';
 import { SingupComponent } from './components/singup/singup.component';
+import { WrapSignupComponent } from './containers/wrap-signup/wrap-signup.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { SingupComponent } from './components/singup/singup.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent, WrapLoginComponent, SingupComponent]
+  declarations: [LoginComponent, WrapLoginComponent, SingupComponent, WrapSignupComponent]
 })
 export class AuthModule { }

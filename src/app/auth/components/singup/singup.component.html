@@ -1,3 +1,44 @@
-<p>
-  singup works!
-</p>
+<form [formGroup]="singupForm" (submit)="singup()">
+
+  <label>
+    User Name:
+    <input type="text" [formControlName]="'username'">
+  </label>
+
+  <label>
+    Email:
+    <input type="text" [formControlName]="'email'">
+    <p *ngIf="singupForm.get('email').invalid && singupForm.get('email').touched">
+      <span *ngIf="singupForm.get('email').hasError('required')">
+        Email is required
+      </span>
+      <span *ngIf="singupForm.get('email').hasError('pattern')">
+        Please type a valid email address
+      </span>
+    </p>
+  </label>
+
+  <label>
+    Password:
+    <input type="password" [formControlName]="'password'">
+    <p *ngIf="singupForm.get('password').invalid && singupForm.get('password').touched">
+      <span *ngIf="singupForm.get('password').hasError('required')">
+        password is required
+      </span>
+    </p>
+  </label>
+
+  <label>
+    Retype Password:
+    <input type="password" [formControlName]="'retypePassword'">
+    <p *ngIf="singupForm.get('retypePassword').invalid && singupForm.get('retypePassword').touched">
+      <span *ngIf="singupForm.get('retypePassword').hasError('required')">
+        Retype Password is required
+      </span>
+    </p>
+  </label>
+
+  <input type="submit" value="signup" [disabled]="!singupForm.valid">
+  <button type="reset">clear</button>
+</form>
+
