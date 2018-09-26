@@ -20,7 +20,8 @@ export class HelperService {
 
   /* //* mock http call */
   isEmailAlreadyExits(email): Observable<boolean>{
-    return ObservableOf<boolean>(EMAIL_LIST.includes(email));
+    return ObservableOf<boolean>(EMAIL_LIST.includes(email)).pipe(
+    );
   }
 
 }

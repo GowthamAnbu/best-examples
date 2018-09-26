@@ -8,15 +8,21 @@
   <label>
     Email:
     <input type="text" [formControlName]="'email'">
-    <p *ngIf="singupForm.get('email').invalid && singupForm.get('email').touched">
+    <span *ngIf="singupForm.get('email').pending">
+      Checking ...
+    </span>
+    <span *ngIf="singupForm.get('email').valid">
+      Valid Email
+    </span>
+    <span *ngIf="singupForm.get('email').errors && singupForm.get('email').hasError('notValid')">
+      Email Address is already taken
+    </span>
+    <p *ngIf="singupForm.get('email').invalid && (singupForm.get('email').touched || singupForm.get('email').dirty)">
       <span *ngIf="singupForm.get('email').hasError('required')">
         Email is required
       </span>
       <span *ngIf="singupForm.get('email').hasError('pattern')">
         Please type a valid email address
-      </span>
-      <span *ngIf="singupForm.get('email').hasError('notValid')">
-        Email Address is already taken
       </span>
     </p>
   </label>

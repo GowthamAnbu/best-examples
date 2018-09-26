@@ -41,10 +41,8 @@ export class WrapSignupComponent implements OnInit {
 
   IsValidEmail(ctrl: AbstractControl): Promise<ValidationErrors> | Observable<ValidationErrors> {
     return this.helper.isEmailAlreadyExits(ctrl.value).pipe(
-      tap(result => console.log(result)),
       map(result => (result ? { notValid: true } : null)),
       catchError(() => null),
-      tap(result => console.log(result)),
     );
   }
 }
