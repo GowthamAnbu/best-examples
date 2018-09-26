@@ -1,4 +1,4 @@
-<form [formGroup]="singupForm" (submit)="singup()">
+<form [formGroup]="singupForm" (submit)="singup()" templateEqualValidator>
 
   <label>
     User Name:
@@ -38,6 +38,9 @@
     </p>
   </label>
 
+  <p *ngIf="singupForm.hasError('notEqual') && (singupForm.get('retypePassword').touched || singupForm.get('retypePassword').dirty)">
+    password and retype password should match
+  </p>
   <input type="submit" value="signup" [disabled]="!singupForm.valid">
   <button type="reset">clear</button>
 </form>

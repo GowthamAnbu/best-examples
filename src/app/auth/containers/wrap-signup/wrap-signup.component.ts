@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HelperService } from '../../../utils/helper.service';
+import { NotEqualValidator } from '../../directives/equal-validator.directive';
 
 @Component({
   selector: 'template-wrap-signup',
@@ -14,7 +15,7 @@ export class WrapSignupComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.pattern(this.helper.emailRegex)]),
     password: new FormControl('', Validators.required), // TODO add validator pattern and also do the same in template-singup
     retypePassword: new FormControl('', Validators.required), // TODO add validator pattern and also do the same in template-singup
-  }, { updateOn: 'change'});
+  }, { updateOn: 'change', validators: NotEqualValidator});
 
   constructor(public helper: HelperService,) { }
 

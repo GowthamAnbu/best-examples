@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { WrapLoginComponent } from './containers/wrap-login/wrap-login.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { WrapSignupComponent } from './containers/wrap-signup/wrap-signup.component';
+import { NotEqualValidatorDirective } from './directives/equal-validator.directive';
 
 @NgModule({
   imports: [
@@ -15,6 +16,12 @@ import { WrapSignupComponent } from './containers/wrap-signup/wrap-signup.compon
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent, WrapLoginComponent, SingupComponent, WrapSignupComponent]
+  declarations: [
+    LoginComponent,
+    WrapLoginComponent,
+    SingupComponent,
+    WrapSignupComponent,
+    NotEqualValidatorDirective
+  ]
 })
 export class AuthModule { }
