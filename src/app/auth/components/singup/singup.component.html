@@ -15,6 +15,9 @@
       <span *ngIf="singupForm.get('email').hasError('pattern')">
         Please type a valid email address
       </span>
+      <span *ngIf="singupForm.get('email').hasError('notValid')">
+        Email Address is already taken
+      </span>
     </p>
   </label>
 

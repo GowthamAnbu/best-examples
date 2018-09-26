@@ -17,5 +17,5 @@ export class NotEqualValidatorDirective implements Validator {
 export const NotEqualValidator : ValidatorFn = (control: FormGroup) : ValidationErrors | null => {
   const password = control.get('password');
   const retypePassword = control.get('retypePassword');
-  return password && retypePassword && password.value !== retypePassword.value ? { 'notEqual' : true} : null;
+  return password && retypePassword && password.value !== retypePassword.value ? { notEqual : true} : null;
 }

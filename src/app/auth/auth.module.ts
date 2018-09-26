@@ -21,7 +21,7 @@ import { NotEqualValidatorDirective } from './directives/equal-validator.directi
     WrapLoginComponent,
     SingupComponent,
     WrapSignupComponent,
-    NotEqualValidatorDirective
+    NotEqualValidatorDirective,
   ]
 })
 export class AuthModule { }
