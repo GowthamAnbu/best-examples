@@ -30,7 +30,8 @@ export class WrapSignupComponent implements OnInit {
     // TODO add action here which internally uses another action to redirect to the target page
   }
 
-  /* searchCtrl(control: AbstractControl) {
+  /* //* https://github.com/angular/angular/issues/9119
+  searchCtrl(control: AbstractControl) {
     return control.valueChanges.pipe(
       debounceTime(400),
       distinctUntilChanged(),
