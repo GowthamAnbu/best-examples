@@ -5,6 +5,7 @@ import { AppComponent } from './containers/app/app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ShellComponent } from './components/shell/shell.component';
+import { MaterialModule } from '../material';
 
 const COMPONENTS = [
 AppComponent,
@@ -17,6 +18,7 @@ ShellComponent
   imports: [
     CommonModule,
     RouterModule,
+    MaterialModule
   ],
   declarations: [
     COMPONENTS
