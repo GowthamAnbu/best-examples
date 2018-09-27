@@ -1,4 +1,6 @@
-<form [formGroup]="loginForm" (submit)="login()">
+<!-- https://startbootstrap.com/snippets/login/ -->
+<!-- BASIC -->
+<!-- <form [formGroup]="loginForm" (submit)="login()">
 
   <label>
     Email:
@@ -26,3 +28,41 @@
 </form>
 
 <input type="button" value="signup" (click)="helper.navigateTo(['singup'])">
+ -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign In</h5>
+          <form class="form-signin" [formGroup]="loginForm" (submit)="login()" novalidate autocomplete="off">
+            <label for="inputEmail">Email address</label>
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" autofocus [formControlName]="'email'">
+              <p *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched" class="text-danger">
+                <span *ngIf="loginForm.get('email').hasError('required')">
+                  Email is required
+                </span>
+                <span *ngIf="loginForm.get('email').hasError('pattern')">
+                  Please type a valid email address
+                </span>
+              </p>
+            </div>
+
+            <label for="inputPassword">Password</label>
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" [formControlName]="'password'">
+              <p *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" class="text-danger">
+                <span *ngIf="loginForm.get('password').hasError('required')">
+                  password is required
+                </span>
+              </p>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+            <input class="btn btn-lg btn-primary btn-block text-uppercase" type="button" value="signup" (click)="helper.navigateTo(['singup'])">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
