@@ -26,14 +26,14 @@
   <input type="submit" value="Login" [disabled]="!loginForm.valid">
 </form>
 
-<input type="button" value="signup" (click)="helper.navigateTo(['singup'])"> -->
+<input type="button" value="signup" [routerLink]="['/signup']"> -->
 <mat-card class="center_element">
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
     <mat-card-subtitle>please fill out the form to sign in </mat-card-subtitle>
   </mat-card-header>
   <form [formGroup]="loginForm" (submit)="login()" autocomplete="off" novalidate>
-    <mat-card-content>
+  <mat-card-content>
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
@@ -61,8 +61,12 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
-      <button mat-raised-button color="primary" (click)="helper.navigateTo(['singup'])">signup</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid" style="width: 100%">Login</button>
     </mat-card-actions>
   </form>
+  <mat-card-footer>
+    <button mat-raised-button color="accent" [routerLink]="['/signup']" style="width: 100%">signup</button>
+  </mat-card-footer>
 </mat-card>
+
+
