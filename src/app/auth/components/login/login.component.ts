@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { User } from '../../models/user';
 import { FormGroup } from '@angular/forms';
-import { HelperService } from '../../../utils/helper.service';
+import { HelperService } from '../../../core/services/helper.service';
 
 @Component({
   selector: 'template-login',

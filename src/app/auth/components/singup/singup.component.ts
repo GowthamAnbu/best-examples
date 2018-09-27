@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { User } from '../../models/user';
-import { HelperService } from '../../../utils/helper.service';
+import { HelperService } from '../../../core/services/helper.service';
 
 @Component({
   selector: 'template-singup',

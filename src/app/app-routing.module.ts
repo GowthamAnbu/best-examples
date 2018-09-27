@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShellComponent } from './components/shell/shell.component';
-import { HomeComponent } from './components/home/home.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ShellComponent } from './core/components/shell/shell.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [{
   path: '',
@@ -10,13 +10,17 @@ const routes: Routes = [{
   children: [
     {
       path: 'home',
-      component: HomeComponent
+      component: HomeComponent /*//TODO create the guard here */
     },
     {
       path: '',
       redirectTo: 'home',
       pathMatch: 'full',
     },
+    {
+      path: '**',
+      component: PageNotFoundComponent
+    }
   ]
 }
 ];
