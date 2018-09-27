@@ -10,7 +10,7 @@ const routes: Routes = [
     component: WrapLoginComponent
   },
   {
-    path: 'singup',
+    path: 'signup',
     component: WrapSignupComponent,
   }
 ];

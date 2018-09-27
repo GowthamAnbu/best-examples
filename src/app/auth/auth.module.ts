@@ -8,13 +8,17 @@ import { WrapLoginComponent } from './containers/wrap-login/wrap-login.component
 import { SingupComponent } from './components/singup/singup.component';
 import { WrapSignupComponent } from './containers/wrap-signup/wrap-signup.component';
 import { NotEqualValidatorDirective } from './directives/equal-validator.directive';
+import { MaterialModule } from '../material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     AuthRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
   declarations: [
     LoginComponent,

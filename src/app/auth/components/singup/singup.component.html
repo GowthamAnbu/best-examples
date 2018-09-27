@@ -1,4 +1,5 @@
-<form [formGroup]="singupForm" (submit)="singup()" templateEqualValidator>
+<!-- BASIC -->
+<!-- <form [formGroup]="singupForm" (submit)="singup()" templateEqualValidator>
 
   <label>
     User Name:
@@ -52,5 +53,73 @@
   </p>
   <input type="submit" value="signup" [disabled]="!singupForm.valid">
   <button type="reset">clear</button>
-</form>
+</form> -->
 
+<mat-card class="center_element">
+  <mat-card-header>
+    <mat-card-title>Sign Up</mat-card-title>
+    <mat-card-subtitle>Please fill out the form to sign up</mat-card-subtitle>
+  </mat-card-header>
+  <form [formGroup]="singupForm" (submit)="singup()" templateEqualValidator autocomplete="off" novalidate>
+    <mat-card-content>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input matInput type="text" [formControlName]="'username'" autofocus>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" [formControlName]="'email'">
+          <mat-hint *ngIf="singupForm.get('email').pending" style="color: greenyellow">
+            Checking ...
+          </mat-hint>
+          <mat-hint *ngIf="singupForm.get('email').valid" color="primary" style="color: green">
+            Valid Email
+          </mat-hint>
+          <mat-error *ngIf="singupForm.get('email').errors && singupForm.get('email').hasError('notValid')">
+            Email Address is already taken
+          </mat-error>
+          <mat-error *ngIf="singupForm.get('email').invalid && (singupForm.get('email').touched || singupForm.get('email').dirty)">
+            <span *ngIf="singupForm.get('email').hasError('required')">
+              Email is required
+            </span>
+            <span *ngIf="singupForm.get('email').hasError('pattern')">
+              Please type a valid email address
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [formControlName]="'password'">
+          <mat-error *ngIf="singupForm.get('password').invalid && singupForm.get('password').touched">
+            <span *ngIf="singupForm.get('password').hasError('required')">
+              password is required
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Retype Password</mat-label>
+          <input matInput type="password" [formControlName]="'retypePassword'">
+          <mat-error *ngIf="singupForm.get('retypePassword').invalid && singupForm.get('retypePassword').touched">
+            <span *ngIf="singupForm.get('retypePassword').hasError('required')">
+              Retype Password is required
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <mat-error *ngIf="singupForm.hasError('notEqual') && (singupForm.get('retypePassword').touched || singupForm.get('retypePassword').dirty)">
+        password and retype password should match
+      </mat-error>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button [disabled]="!singupForm.valid" color="primary">Sign Up</button>
+      <button type="reset" mat-raised-button>clear</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

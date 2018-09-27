@@ -1,4 +1,5 @@
-<form [formGroup]="loginForm" (submit)="login()">
+<!-- BASIC -->
+<!-- <form [formGroup]="loginForm" (submit)="login()">
 
   <label>
     Email:
@@ -25,4 +26,43 @@
   <input type="submit" value="Login" [disabled]="!loginForm.valid">
 </form>
 
-<input type="button" value="signup" (click)="helper.navigateTo(['singup'])">
+<input type="button" value="signup" (click)="helper.navigateTo(['singup'])"> -->
+<mat-card class="center_element">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle>please fill out the form to sign in </mat-card-subtitle>
+  </mat-card-header>
+  <form [formGroup]="loginForm" (submit)="login()" autocomplete="off" novalidate>
+    <mat-card-content>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="text" matInput [formControlName]="'email'" autofocus>
+          <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+            <span *ngIf="loginForm.get('email').hasError('required')">
+              Email is required
+            </span>
+            <span *ngIf="loginForm.get('email').hasError('pattern')">
+              Please type a valid email address
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput [formControlName]="'password'">
+          <mat-error *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+            <span *ngIf="loginForm.get('password').hasError('required')">
+              password is required
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+      <button mat-raised-button color="primary" (click)="helper.navigateTo(['singup'])">signup</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
